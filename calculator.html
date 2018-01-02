@@ -6,10 +6,10 @@
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     </head>
-    <body class="w3-sepia w3-xlarge">
-        <p class="w3-card w3-xxlarge">Calculator for Lords Mobile Game</p>
+    <body class="w3-sepia">
+        <h2 class="w3-card">Calculator for Lords Mobile Game</h2>
         <div class="w3-row" ng-app="myApp" ng-controller="myCtrl">
-            <div class="w3-col s3 m3 w3-container">
+            <div class="w3-col s3 m3">
                 <div class="w3-cell-row">
                     <div class="w3-cell w3-container">
                         <div class="w3-bar-block">
@@ -35,8 +35,8 @@
                     </div>
                 </div>
             </div>
-            <div class="w3-col s9 m6 w3-container">
-                <form novalidate>
+            <div class="w3-col s9 m6">
+                <form class="w3-container" novalidate>
                     <table class="w3-table w3-striped w3-hoverable w3-responsive">
                         <tr>
                             <th class="w3-right-align">Quantity</th>
@@ -51,10 +51,10 @@
                     </table>
                 </form>
             </div>
-            <div class="w3-col m3 w3-container">
+            <div class="w3-col m3">
                 <div class="w3-container w3-card">
-                    <p>Sum</p>
-                    <p class="w3-xxlarge">{{ formatCard(sum) }}</p>
+                    <h4>Sum</h4>
+                    <h3>{{ formatCard(sum) }}</h3>
                     <!-- <pre>{{ cards }}</pre> -->
                 </div>
             </div>
