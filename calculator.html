@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Calculator</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    </head>
+    <body>
+        <div ng-app="myApp" ng-controller="myCtrl">
+            <h2>Calculator for Lords Mobile Game</h2>
+            <form novalidate>
+                <table>
+                  <tr ng-repeat="x in cards">
+                    <td><input type="number" ng-change="refresh()" ng-model="x.qty"></td>
+                    <td>{{ formatCard(x.card) }}</td>
+                    <td><button ng-click="removeCard(x.id)">&times;</button></td>
+                  </tr>
+                </table>
+                <div>
+                    <button ng-click="addCard(1)">{{ formatCard(1) }}</button>
+                    <button ng-click="addCard(3)">{{ formatCard(3) }}</button>
+                    <button ng-click="addCard(5)">{{ formatCard(5) }}</button>
+                    <button ng-click="addCard(10)">{{formatCard(10) }}</button>
+                    <button ng-click="addCard(15)">{{ formatCard(15) }}</button>
+                    <button ng-click="addCard(30)">{{ formatCard(30) }}</button>
+                    <button ng-click="addCard(60)">{{ formatCard(60) }}</button>
+                    <button ng-click="addCard(180)">{{ formatCard(180) }}</button>
+                    <button ng-click="addCard(480)">{{ formatCard(480) }}</button>
+                    <button ng-click="addCard(900)">{{ formatCard(900) }}</button>
+                    <button ng-click="addCard(1440)">{{ formatCard(1440) }}</button>
+                    <button ng-click="addCard(4320)">{{ formatCard(4320) }}</button>
+                    <button ng-click="addCard(10080)">{{ formatCard(10080) }}</button>
+                    <button ng-click="addCard(43200)">{{ formatCard(43200) }}</button>
+                    <h3>Sum: {{ formatCard(sum) }}</h3>
+                    <!-- <pre>{{ cards }}</pre> -->
+                    <hr>
+                    <p>For support send a message to the <a href="email:alvfig666@gmail.com">author</a> </p>
+                </div>
+            </form>
+        </div>
+
+        <script>
+        var app = angular.module('myApp', []);
+        app.controller('myCtrl', function($scope) {
+            $scope.cards = [{id:0,card:5,qty:1},{id:1,card:10,qty:1}];
+            $scope.refresh = function() {
+                $scope.sum = 0;
+                for (var i = 0; i < $scope.cards.length; i++) {
+                    $scope.cards[i].id = i;
+                    $scope.sum += $scope.cards[i].qty * $scope.cards[i].card;
+                }
+            };
+            $scope.refresh();
+            $scope.addCard = function(m) {
+                $scope.cards.push({id:$scope.cards.length,card:m,qty:1})
+                $scope.refresh();
+            };
+            $scope.removeCard = function(i) {
+                $scope.cards.splice(i, 1);
+                $scope.refresh();
+            };
+            $scope.formatCard = function(c) {
+                minutes = c;
+                fmt = '';
+
+                // Evaluate & format days
+                days = Math.floor(minutes / 1440);
+                minutes %= 1440;
+                if (0 < days) {
+                    if (1 == days)
+                        fmt += days + ' day';
+                    else
+                        fmt += days + ' days';
+                }
+
+                // Evaluate & format hours
+                hours = Math.floor(minutes / 60);
+                minutes %= 60;
+                if (0 < hours) {
+                    if (fmt)
+                        fmt += ' ';
+                    if (1 == hours)
+                        fmt += hours + ' hour';
+                    else
+                        fmt += hours + ' hours';
+                }
+
+                // Format minutes
+                if (0 < minutes) {
+                    if (fmt)
+                        fmt += ' ';
+                    if (1 == minutes)
+                        fmt += minutes + ' minute';
+                    else
+                        fmt += minutes + ' minutes';
+                }
+
+                return fmt;
+            };
+        });
+        </script>
+    </body>
+</html>
