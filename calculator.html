@@ -3,40 +3,53 @@
     <head>
         <meta charset="utf-8">
         <title>Calculator</title>
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     </head>
-    <body>
-        <div ng-app="myApp" ng-controller="myCtrl">
+    <body class="w3-sepia">
+        <div class="w3-row" ng-app="myApp" ng-controller="myCtrl">
             <h2>Calculator for Lords Mobile Game</h2>
-            <form novalidate>
-                <table>
-                  <tr ng-repeat="x in cards">
-                    <td><input type="number" ng-change="refresh()" ng-model="x.qty"></td>
-                    <td>{{ formatCard(x.card) }}</td>
-                    <td><button ng-click="removeCard(x.id)">&times;</button></td>
-                  </tr>
-                </table>
-                <div>
-                    <button ng-click="addCard(1)">{{ formatCard(1) }}</button>
-                    <button ng-click="addCard(3)">{{ formatCard(3) }}</button>
-                    <button ng-click="addCard(5)">{{ formatCard(5) }}</button>
-                    <button ng-click="addCard(10)">{{formatCard(10) }}</button>
-                    <button ng-click="addCard(15)">{{ formatCard(15) }}</button>
-                    <button ng-click="addCard(30)">{{ formatCard(30) }}</button>
-                    <button ng-click="addCard(60)">{{ formatCard(60) }}</button>
-                    <button ng-click="addCard(180)">{{ formatCard(180) }}</button>
-                    <button ng-click="addCard(480)">{{ formatCard(480) }}</button>
-                    <button ng-click="addCard(900)">{{ formatCard(900) }}</button>
-                    <button ng-click="addCard(1440)">{{ formatCard(1440) }}</button>
-                    <button ng-click="addCard(4320)">{{ formatCard(4320) }}</button>
-                    <button ng-click="addCard(10080)">{{ formatCard(10080) }}</button>
-                    <button ng-click="addCard(43200)">{{ formatCard(43200) }}</button>
-                    <h3>Sum: {{ formatCard(sum) }}</h3>
-                    <!-- <pre>{{ cards }}</pre> -->
-                    <hr>
-                    <p>For support send a message to the <a href="email:alvfig666@gmail.com">author</a> </p>
-                </div>
-            </form>
+            <div class="w3-quarter w3-bar-block w3-small w3-mobile">
+                <button class="w3-bar-item" ng-click="addCard(1)">{{ formatCard(1) }}</button>
+                <button class="w3-bar-item" ng-click="addCard(3)">{{ formatCard(3) }}</button>
+                <button class="w3-bar-item" ng-click="addCard(5)">{{ formatCard(5) }}</button>
+                <button class="w3-bar-item" ng-click="addCard(10)">{{formatCard(10) }}</button>
+                <button class="w3-bar-item" ng-click="addCard(15)">{{ formatCard(15) }}</button>
+                <button class="w3-bar-item" ng-click="addCard(30)">{{ formatCard(30) }}</button>
+                <button class="w3-bar-item" ng-click="addCard(60)">{{ formatCard(60) }}</button>
+                <button class="w3-bar-item" ng-click="addCard(180)">{{ formatCard(180) }}</button>
+                <button class="w3-bar-item" ng-click="addCard(480)">{{ formatCard(480) }}</button>
+                <button class="w3-bar-item" ng-click="addCard(900)">{{ formatCard(900) }}</button>
+                <button class="w3-bar-item" ng-click="addCard(1440)">{{ formatCard(1440) }}</button>
+                <button class="w3-bar-item" ng-click="addCard(4320)">{{ formatCard(4320) }}</button>
+                <button class="w3-bar-item" ng-click="addCard(10080)">{{ formatCard(10080) }}</button>
+                <button class="w3-bar-item" ng-click="addCard(43200)">{{ formatCard(43200) }}</button>
+            </div>
+            <div class="w3-half w3-mobile">
+                <form novalidate>
+                    <table class="w3-table w3-striped w3-hoverable w3-responsive">
+                        <tr>
+                            <th class="w3-right-align">Quantity</th>
+                            <th class="w3-right-align">Resource</th>
+                            <th></th>
+                        </tr>
+                        <tr ng-repeat="x in cards">
+                            <td class="w3-right-align"><input type="number" class="w3-right-align" ng-change="refresh()" ng-model="x.qty"></td>
+                            <td class="w3-right-align">{{ formatCard(x.card) }}</td>
+                            <td><button class="w3-tooltip" ng-click="removeCard(x.id)">&times;<span class="w3-text">Remove this line</span></button></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+            <div class="w3-quarter w3-mobile">
+                <h4>Sum</h4>
+                <h3>{{ formatCard(sum) }}</h3>
+                <!-- <pre>{{ cards }}</pre> -->
+            </div>
+        </div>
+        <div class="w3-panel w3-card">
+            <!-- <hr> -->
+            <p>For support send a message to the <a href="email:alvfig666@gmail.com">author</a> </p>
         </div>
 
         <script>
