@@ -67,10 +67,9 @@
                 days = Math.floor(minutes / 1440);
                 minutes %= 1440;
                 if (0 < days) {
-                    if (1 == days)
-                        fmt += days + ' day';
-                    else
-                        fmt += days + ' days';
+                    fmt += days + ' day';
+                    if (1 < days)
+                        fmt += 's';
                 }
 
                 // Evaluate & format hours
@@ -79,20 +78,18 @@
                 if (0 < hours) {
                     if (fmt)
                         fmt += ' ';
-                    if (1 == hours)
-                        fmt += hours + ' hour';
-                    else
-                        fmt += hours + ' hours';
+                    fmt += hours + ' hour';
+                    if (1 < hours)
+                        fmt += 's';
                 }
 
                 // Format minutes
                 if (0 < minutes) {
                     if (fmt)
                         fmt += ' ';
-                    if (1 == minutes)
-                        fmt += minutes + ' minute';
-                    else
-                        fmt += minutes + ' minutes';
+                    fmt += minutes + ' minute';
+                    if (1 < minutes)
+                        fmt += 's';
                 }
 
                 return fmt;
