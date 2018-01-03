@@ -71,7 +71,11 @@
             </div>
             <div class="w3-col w3-container w3-card">
                 <hr>
-                <p>For support send a message to the <a href="email:alvfig666@gmail.com">author</a></p>
+                <button class="w3-btn" ng-click="showAbout()">About</button>
+                <div id="About" class="w3-hide">
+                    <p>For support you can send a message to the <a href="email:alvfig666@gmail.com">author</a></p>
+                    <p>This project is on <a href="https://github.com/alvfig/calclm">Github</a></p>
+                </div>
             </div>
         </div>
 
@@ -154,7 +158,14 @@
             $scope.clearMemory = function() {
                 $scope.memory = 0;
                 $scope.refresh();
-            }
+            };
+            $scope.showAbout = function() {
+                var e = document.getElementById("About");
+                if (-1 == e.className.indexOf("w3-show"))
+                    e.className += " w3-show";
+                else
+                    e.className = e.className.replace(" w3-show", "");
+            };
         });
         </script>
     </body>
