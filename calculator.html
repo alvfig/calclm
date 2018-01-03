@@ -47,7 +47,7 @@
                         <tr>
                             <th class="w3-right-align">Quantity</th>
                             <th class="w3-right-align">Resource</th>
-                            <th></th>
+                            <th><button class="w3-tooltip" ng-click="removeCard(-1)">&times;<span class="w3-text">Remove all lines</span></button></th>
                         </tr>
                         <tr ng-repeat="x in cards">
                             <td class="w3-right-align"><input type="number" class="w3-right-align" ng-change="refresh()" ng-model="x.qty"></td>
@@ -84,7 +84,10 @@
                 $scope.refresh();
             };
             $scope.removeCard = function(i) {
-                $scope.cards.splice(i, 1);
+                if (-1 == i)
+                    $scope.cards = [];
+                else
+                    $scope.cards.splice(i, 1);
                 $scope.refresh();
             };
             $scope.formatCard = function(c) {
