@@ -26,7 +26,7 @@
                             <button class="w3-bar-item w3-btn" ng-click="addCard(480)">{{ formatValue(480) }}</button>
                             <button class="w3-bar-item w3-btn" ng-click="addCard(1440)">{{ formatValue(1440) }}</button>
                             <button class="w3-bar-item w3-btn" ng-click="addCard(10080)">{{ formatValue(10080) }}</button>
-                            <button class="w3-bar-item w3-btn" ng-click="saveOnMemory()">&gt;M</button>
+                            <button class="w3-bar-item w3-btn" ng-click="saveOnMemory()">&gt; Memory</button>
                         </div>
                     </div>
                     <div class="w3-cell">
@@ -38,7 +38,7 @@
                             <button class="w3-bar-item w3-btn" ng-click="addCard(900)">{{ formatValue(900) }}</button>
                             <button class="w3-bar-item w3-btn" ng-click="addCard(4320)">{{ formatValue(4320) }}</button>
                             <button class="w3-bar-item w3-btn" ng-click="addCard(43200)">{{ formatValue(43200) }}</button>
-                            <button class="w3-bar-item w3-btn" ng-click="clearMemory()">CM</button>
+                            <button class="w3-bar-item w3-btn" ng-click="clearMemory()">Clear Memory</button>
                         </div>
                     </div>
                 </div>
@@ -71,8 +71,12 @@
             </div>
             <div class="w3-col w3-container w3-card">
                 <hr>
-                <button class="w3-btn" ng-click="toggleAbout()">About</button>
+                <button class="w3-btn" ng-click="toggleAbout()">About & Help</button>
                 <div id="About" class="w3-hide">
+                    <p>This calculator can help you sum up the accelerators from Lords Mobile game. It run on the browser and should work equally well on desktops, laptops, tablets and mobiles.</p>
+                    <p>Use the Time Interval buttons (minutes, hours and days), then place the correspondig quantity of accelerators and see the result on the display at the end (near the word "Sum").</p>
+                    <p>Use the Remove buttons (X) to remove each accelerator. To remove all those at once, use the Remove button located at the top, near the "Resource" header.</p>
+                    <p>The buttons Store to Memory and Clear Memory can reserve a previous result to add up to another set of accelerators.</p>
                     <p>If necessary you can ask for support sending a message to the <a href="email:alvfig666@gmail.com">author</a>.</p>
                     <p>This project is on <a href="https://github.com/alvfig/calclm">Github</a>.</p>
                 </div>
