@@ -52,7 +52,7 @@
                             <th><button class="w3-tooltip" ng-click="removeCard(-1)">&times;<span class="w3-text">Remove all lines</span></button></th>
                         </tr>
                         <tr ng-repeat="x in cards">
-                            <td class="w3-right-align"><input type="number" class="w3-right-align" ng-change="refresh()" ng-model="x.qty"></td>
+                            <td class="w3-right-align"><input id="{{'card'+x.id}}" type="number" class="w3-right-align" ng-change="refresh()" ng-model="x.qty"><span ng-if="$last">{{ focus(x.id) }}</span></td>
                             <td class="w3-right-align">{{ formatValue(x.value) }}</td>
                             <td><button class="w3-tooltip" ng-click="removeCard(x.id)">&times;<span class="w3-text">Remove this line</span></button></td>
                         </tr>
@@ -107,8 +107,12 @@
                     }
                     $scope.total = 0;
                 }
+
             };
             $scope.refresh();
+            $scope.focus = function(id) {
+                document.getElementById('card'+id).focus();
+            };
             $scope.addCard = function(v) {
                 $scope.cards.push({id:$scope.cards.length,value:v,qty:1})
                 $scope.refresh();
