@@ -86,6 +86,7 @@
         <script>
         var app = angular.module('myApp', []);
         app.controller('myCtrl', function($scope) {
+            $scope.shouldFocus = false;
             $scope.memory = 0;
             $scope.total = 0;
             $scope.cards = [{id:0,value:5,qty:1},{id:1,value:10,qty:1}];
@@ -107,15 +108,18 @@
                     }
                     $scope.total = 0;
                 }
-
             };
             $scope.refresh();
             $scope.focus = function(id) {
-                document.getElementById('card'+id).focus();
+                if ($scope.shouldFocus) {
+                    document.getElementById('card'+id).focus();
+                    $scope.shouldFocus = false;
+                }
             };
             $scope.addCard = function(v) {
                 $scope.cards.push({id:$scope.cards.length,value:v,qty:1})
                 $scope.refresh();
+                $scope.shouldFocus = true;
             };
             $scope.removeCard = function(i) {
                 if (-1 == i) {
