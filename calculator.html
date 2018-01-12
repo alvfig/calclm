@@ -52,9 +52,9 @@
                             <th><button class="w3-tooltip w3-btn w3-ripple" ng-click="removeCard(-1)">&times;<span class="w3-text">Remove all lines</span></button></th>
                         </tr>
                         <tr ng-repeat="x in cards">
-                            <td class="w3-right-align"><input id="{{'card'+x.id}}" type="number" class="w3-right-align" ng-change="refresh()" ng-model="x.qty"><span ng-if="$last">{{ focus(x.id) }}</span></td>
+                            <td class="w3-right-align"><input id="{{'card'+$index}}" type="number" class="w3-right-align" ng-change="refresh()" ng-model="x.qty"><span ng-if="$last">{{ focus($index) }}</span></td>
                             <td class="w3-right-align">{{ formatValue(x.value) }}</td>
-                            <td><button class="w3-tooltip w3-btn w3-ripple" ng-click="removeCard(x.id)">&times;<span class="w3-text">Remove this line</span></button></td>
+                            <td><button class="w3-tooltip w3-btn w3-ripple" ng-click="removeCard($index)">&times;<span class="w3-text">Remove this line</span></button></td>
                         </tr>
                     </table>
                 </form>
@@ -71,8 +71,10 @@
             </div>
             <div class="w3-col w3-container w3-card">
                 <hr>
-                <button class="w3-btn w3-ripple" ng-click="toggleAbout()">About & Help</button>
+                <button class="w3-btn w3-ripple" ng-click="toggleAbout()">About &amp; Help</button>
                 <div id="About" class="w3-hide">
+                    <h3>Calculator for Lords Mobile Game v0.1</h3>
+                    <p>Copyright © 2018 by <a href="email:alvfig666@gmail.com">Alvaro Figueiredo</a></p>
                     <p>This calculator can help you sum up the accelerators from Lords Mobile game. It run on the browser and should work equally well on desktops, laptops, tablets and mobiles.</p>
                     <p>Use the Time Interval buttons (minutes, hours and days), then place the correspondig quantity of accelerators and see the result on the display at the end (near the word "Sum").</p>
                     <p>Use the Remove buttons (&times;) to remove each accelerator. To remove all those at once, use the Remove button located at the top, near the "Resource" header.</p>
@@ -93,7 +95,6 @@
             $scope.refresh = function() {
                 $scope.sum = 0;
                 for (var i = 0; i < $scope.cards.length; i++) {
-                    $scope.cards[i].id = i;
                     $scope.sum += $scope.cards[i].qty * $scope.cards[i].value;
                 }
                 var e = document.getElementById("Memory");
@@ -117,15 +118,15 @@
                 }
             };
             $scope.addCard = function(v) {
-                $scope.cards.push({id:$scope.cards.length,value:v,qty:1})
+                $scope.cards.push({value:v,qty:''})
                 $scope.refresh();
                 $scope.shouldFocus = true;
             };
-            $scope.removeCard = function(i) {
-                if (-1 == i) {
+            $scope.removeCard = function(id) {
+                if (-1 == id) {
                     $scope.cards = [];
                 } else {
-                    $scope.cards.splice(i, 1);
+                    $scope.cards.splice(id, 1);
                 }
                 $scope.refresh();
             };
