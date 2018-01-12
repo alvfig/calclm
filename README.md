@@ -1,6 +1,6 @@
 # Calculator for Lords Mobile game
 
-This calculator can help you sum up the accelerators from Lords Mobile game. It run on the browser and should work equally well on desktops, laptops, tablets and mobiles.
+This calculator can help you sum up the accelerators from Lords Mobile game. It runs on most modern browsers and should work equally well on desktops, laptops, tablets and mobiles.
 
 ![Horizontal display](horizontal.png)
 <!-- ![Horizontal display image]() -->
@@ -12,7 +12,7 @@ This calculator can help you sum up the accelerators from Lords Mobile game. It 
 
 Use the Time Interval buttons (minutes, hours and days), then place the correspondig quantity of accelerators and see the result on the display at the end (near the word "Sum").
 
-Use the Remove buttons (X) to remove each accelerator. To remove all those at once, use the Remove button located at the top, near the "Resource" header.
+Press the Remove buttons (&times;) to remove each accelerator. To remove all those at once, choose the Remove button located at the top, near the "Resource" header.
 
 The buttons Store to Memory and Clear Memory can reserve a previous result to add up to another set of accelerators.
 
