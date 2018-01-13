@@ -14,7 +14,7 @@ Use the Time Interval buttons (minutes, hours and days), then place the correspo
 
 Press the Remove buttons (&times;) to remove each accelerator. To remove all those at once, choose the Remove button located at the top, near the "Resource" header.
 
-The buttons Store to Memory and Clear Memory can reserve a previous result to add up to another set of accelerators.
+The buttons Store to Memory and Clear Memory can reserve a previous result to add up to another set of accelerators or contact Lady WB on Lords Mobile game.
 
 ## Install
 
