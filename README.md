@@ -1,6 +1,6 @@
 # Calculator for Lords Mobile game
 
-This calculator can help you sum up the accelerators/speed ups from Lords Mobile game. It runs on most modern browsers and should work equally well on desktops, laptops, tablets and mobiles.
+This calculator can helps you sum up the accelerators/speed ups from Lords Mobile game. It runs on most modern browsers and should work equally well on desktops, laptops, tablets and mobiles.
 
 ![Horizontal display](horizontal.png)
 <!-- ![Horizontal display image]() -->
@@ -22,6 +22,6 @@ Download the `calculator.html` file and open it with your browser.
 
 ## About
 
-If necessary you can ask for support sending a message to the [author](email:alvfig666@gmail.com) or contact Lady WB on Lords Mobile game.
+If necessary you can ask for support sending a message to the [author](email:alvfig666@gmail.com) or contacting Lady WB on Lords Mobile game.
 
 This project is on [Github](https://github.com/alvfig/calclm).
