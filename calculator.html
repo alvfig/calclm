@@ -19,25 +19,25 @@
                 <div class="w3-cell-row">
                     <div class="w3-cell">
                         <div class="w3-bar-block">
-                            <button class="w3-bar-item w3-btn w3-ripple" ng-click="addCard(1)">{{ formatValue(1) }}</button>
-                            <button class="w3-bar-item w3-btn w3-ripple" ng-click="addCard(5)">{{ formatValue(5) }}</button>
-                            <button class="w3-bar-item w3-btn w3-ripple" ng-click="addCard(15)">{{ formatValue(15) }}</button>
-                            <button class="w3-bar-item w3-btn w3-ripple" ng-click="addCard(60)">{{ formatValue(60) }}</button>
-                            <button class="w3-bar-item w3-btn w3-ripple" ng-click="addCard(480)">{{ formatValue(480) }}</button>
-                            <button class="w3-bar-item w3-btn w3-ripple" ng-click="addCard(1440)">{{ formatValue(1440) }}</button>
-                            <button class="w3-bar-item w3-btn w3-ripple" ng-click="addCard(10080)">{{ formatValue(10080) }}</button>
+                            <button class="w3-bar-item w3-btn w3-ripple" ng-click="addCard(1)">{{formatValue(1)}}</button>
+                            <button class="w3-bar-item w3-btn w3-ripple" ng-click="addCard(5)">{{formatValue(5)}}</button>
+                            <button class="w3-bar-item w3-btn w3-ripple" ng-click="addCard(15)">{{formatValue(15)}}</button>
+                            <button class="w3-bar-item w3-btn w3-ripple" ng-click="addCard(60)">{{formatValue(60)}}</button>
+                            <button class="w3-bar-item w3-btn w3-ripple" ng-click="addCard(480)">{{formatValue(480)}}</button>
+                            <button class="w3-bar-item w3-btn w3-ripple" ng-click="addCard(1440)">{{formatValue(1440)}}</button>
+                            <button class="w3-bar-item w3-btn w3-ripple" ng-click="addCard(10080)">{{formatValue(10080)}}</button>
                             <button class="w3-bar-item w3-btn w3-ripple" ng-click="saveOnMemory()">&gt; Memory</button>
                         </div>
                     </div>
                     <div class="w3-cell">
                         <div class="w3-bar-block">
-                            <button class="w3-bar-item w3-btn w3-ripple" ng-click="addCard(3)">{{ formatValue(3) }}</button>
-                            <button class="w3-bar-item w3-btn w3-ripple" ng-click="addCard(10)">{{formatValue(10) }}</button>
-                            <button class="w3-bar-item w3-btn w3-ripple" ng-click="addCard(30)">{{ formatValue(30) }}</button>
-                            <button class="w3-bar-item w3-btn w3-ripple" ng-click="addCard(180)">{{ formatValue(180) }}</button>
-                            <button class="w3-bar-item w3-btn w3-ripple" ng-click="addCard(900)">{{ formatValue(900) }}</button>
-                            <button class="w3-bar-item w3-btn w3-ripple" ng-click="addCard(4320)">{{ formatValue(4320) }}</button>
-                            <button class="w3-bar-item w3-btn w3-ripple" ng-click="addCard(43200)">{{ formatValue(43200) }}</button>
+                            <button class="w3-bar-item w3-btn w3-ripple" ng-click="addCard(3)">{{formatValue(3)}}</button>
+                            <button class="w3-bar-item w3-btn w3-ripple" ng-click="addCard(10)">{{formatValue(10)}}</button>
+                            <button class="w3-bar-item w3-btn w3-ripple" ng-click="addCard(30)">{{formatValue(30)}}</button>
+                            <button class="w3-bar-item w3-btn w3-ripple" ng-click="addCard(180)">{{formatValue(180)}}</button>
+                            <button class="w3-bar-item w3-btn w3-ripple" ng-click="addCard(900)">{{formatValue(900)}}</button>
+                            <button class="w3-bar-item w3-btn w3-ripple" ng-click="addCard(4320)">{{formatValue(4320)}}</button>
+                            <button class="w3-bar-item w3-btn w3-ripple" ng-click="addCard(43200)">{{formatValue(43200)}}</button>
                             <button class="w3-bar-item w3-btn w3-ripple" ng-click="clearMemory()">Clear Memory</button>
                         </div>
                     </div>
@@ -49,11 +49,11 @@
                         <tr>
                             <th class="w3-right-align">Quantity</th>
                             <th class="w3-right-align">Resource</th>
-                            <th><button class="w3-tooltip w3-btn w3-ripple" ng-click="removeCard(-1)">&times;<span class="w3-text">Remove all lines</span></button></th>
+                            <th><button class="w3-tooltip w3-btn w3-ripple" ng-click="removeAllCards()">&times;<span class="w3-text">Remove all lines</span></button></th>
                         </tr>
                         <tr ng-repeat="x in cards">
-                            <td class="w3-right-align"><input id="{{'card'+$index}}" type="number" class="w3-right-align" ng-change="refresh()" ng-model="x.qty"><span ng-if="$last">{{ focusCard($index) }}</span></td>
-                            <td class="w3-right-align">{{ formatValue(x.value) }}</td>
+                            <td class="w3-right-align"><input id="{{'card'+$index}}" type="number" class="w3-right-align" ng-model="x.qty"><span ng-if="$last && shouldFocus">{{focusCard('card'+$index)}}</span></td>
+                            <td class="w3-right-align">{{formatValue(x.value)}}</td>
                             <td><button class="w3-tooltip w3-btn w3-ripple" ng-click="removeCard($index)">&times;<span class="w3-text">Remove this line</span></button></td>
                         </tr>
                     </table>
@@ -61,19 +61,19 @@
             </div>
             <div class="w3-col m2 w3-container w3-card">
                 <h4>Sum</h4>
-                <h3>{{ formatValue(sum) }}</h3>
-                <div id="Memory" class="w3-hide">
+                <h3>{{formatValue(sum())}}</h3>
+                <div id="Memory" ng-show="memory">
                     <h5>Memory</h5>
-                    <p>{{ formatValue(memory) }}</p>
+                    <p>{{formatValue(memory)}}</p>
                     <h5>Total</h5>
-                    <p>{{ formatValue(total) }}</p>
+                    <p>{{formatValue(total)}}</p>
                 </div>
             </div>
             <div class="w3-col w3-container w3-card">
                 <hr>
                 <button class="w3-btn w3-ripple" ng-click="toggleAbout()">About &amp; Help</button>
-                <div id="About" class="w3-hide">
-                    <h3>Calculator for Lords Mobile Game v0.2</h3>
+                <div ng-show="about">
+                    <h3>Calculator for Lords Mobile Game v0.3</h3>
                     <p>This calculator can helps you sum up the accelerators/speed ups from Lords Mobile game. It runs on most modern browsers and should work equally well on desktops, laptops, tablets and mobiles.</p>
                     <p>Use the Time Interval buttons (minutes, hours and days), then place the correspondig quantity of accelerators and see the result on the display at the end (near the word "Sum").</p>
                     <p>Press the Remove buttons (&times;) to delete each accelerator. To remove all them at once, choose the Remove button located at the top, near the "Resource" header.</p>
@@ -88,46 +88,40 @@
         <script>
         var app = angular.module('myApp', []);
         app.controller('myCtrl', function($scope) {
+            $scope.about = false;
             $scope.shouldFocus = false;
             $scope.memory = 0;
             $scope.total = 0;
             $scope.cards = [];
-            $scope.refresh = function() {
-                $scope.sum = $scope.cards.reduce(function(sum, card) {
-                    return sum + card.qty * card.value;
-                }, 0);
-                var e = document.getElementById("Memory");
-                if (0 < $scope.memory) {
-                    $scope.total = $scope.sum + $scope.memory;
-                    if (-1 == e.className.indexOf("w3-show")) {
-                        e.className += " w3-show";
-                    }
-                } else {
-                    $scope.total = 0;
-                    if (-1 < e.className.indexOf("w3-show")) {
-                        e.className = e.className.replace(" w3-show", "");
-                    }
-                }
+            $scope.toggleAbout = function() {
+                $scope.about = !$scope.about;
             };
-            $scope.refresh();
             $scope.focusCard = function(id) {
-                if ($scope.shouldFocus) {
-                    document.getElementById('card'+id).focus();
-                    $scope.shouldFocus = false;
-                }
+                document.getElementById(id).focus();
+                $scope.shouldFocus = false;
+            };
+            $scope.saveOnMemory = function() {
+                $scope.memory = $scope.sum();
+            };
+            $scope.clearMemory = function() {
+                $scope.memory = 0;
             };
             $scope.addCard = function(v) {
-                $scope.cards.push({value:v,qty:''})
-                $scope.refresh();
+                $scope.cards.push({value: v, qty: ''})
                 $scope.shouldFocus = true;
             };
             $scope.removeCard = function(id) {
-                if (-1 == id) {
-                    $scope.cards.splice(0, $scope.cards.length);
-                } else {
-                    $scope.cards.splice(id, 1);
-                }
-                $scope.refresh();
+                $scope.cards.splice(id, 1);
+            };
+            $scope.removeAllCards = function() {
+                $scope.cards.splice(0, $scope.cards.length);
+            };
+            $scope.sum = function() {
+                var sum = $scope.cards.reduce(function(sum, card) {
+                    return sum + card.qty * card.value;
+                }, 0);
+                $scope.total = sum + $scope.memory;
+                return sum;
             };
             $scope.formatValue = function(minutes) {
                 var str = '';
@@ -136,35 +130,15 @@
                     var value = Math.floor(remain / divisor);
                     remain %= divisor;
                     if (value) {
-                        if (str) {
-                            str += ' ';
-                        }
+                        str = str && str + ' ';
                         str += value + ' ' + unit;
-                        if (1 < value) {
-                            str += 's';
-                        }
+                        str += (1 < value)? 's': '';
                     }
                 };
                 formatPart(1440, 'day');
                 formatPart(60, 'hour');
                 formatPart(1, 'minute');
                 return str;
-            };
-            $scope.saveOnMemory = function() {
-                $scope.memory = $scope.sum;
-                $scope.refresh();
-            };
-            $scope.clearMemory = function() {
-                $scope.memory = 0;
-                $scope.refresh();
-            };
-            $scope.toggleAbout = function() {
-                var e = document.getElementById("About");
-                if (-1 == e.className.indexOf("w3-show")) {
-                    e.className += " w3-show";
-                } else {
-                    e.className = e.className.replace(" w3-show", "");
-                }
             };
         });
         </script>
