@@ -25,3 +25,7 @@ Download the `calculator.html` file and open it with your browser.
 If necessary you can ask for support by sending a message to the [author](email:alvfig666@gmail.com) or contacting Lady WB on Lords Mobile game.
 
 This project is on [Github](https://github.com/alvfig/calclm).
+
+## Disclaimer
+
+The author was learning AngularJS and W3.CSS when began this project.
