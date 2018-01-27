@@ -53,7 +53,7 @@
                         </tr>
                         <tr ng-repeat="x in cards">
                             <td class="w3-right-align"><input id="{{'card'+$index}}" type="number" class="w3-right-align" ng-model="x.qty"><span ng-if="$last && shouldFocus">{{focusCard('card'+$index)}}</span></td>
-                            <td class="w3-right-align">{{formatValue(x.value)}}</td>
+                            <td class="w3-right-align">{{x.value|interval}}</td>
                             <td><button class="w3-tooltip w3-btn w3-ripple" ng-click="removeCard($index)">&times;<span class="w3-text">Remove this line</span></button></td>
                         </tr>
                     </table>
@@ -73,7 +73,7 @@
                 <hr>
                 <button class="w3-btn w3-ripple" ng-click="toggleAbout()">About &amp; Help</button>
                 <div ng-show="about">
-                    <h3>Calculator for Lords Mobile Game v0.3.2</h3>
+                    <h3>Calculator for Lords Mobile Game v0.3.3</h3>
                     <p>This calculator can helps you sum up the accelerators/speed ups from Lords Mobile game. It runs on most modern browsers and should work equally well on desktops, laptops, tablets and mobiles.</p>
                     <p>Use the Time Interval buttons (minutes, hours and days), then place the correspondig quantity of accelerators and see the result on the display at the end (near the word "Sum").</p>
                     <p>Press the Remove buttons (&times;) to delete each accelerator. To remove all them at once, choose the Remove button located at the top, near the "Resource" header.</p>
